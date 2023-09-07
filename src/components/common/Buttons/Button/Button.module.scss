@@ -1,0 +1,32 @@
+@import "../../../../assets/theme/_var.scss";
+
+.button {
+    width: 26.7rem;
+    height: 6.8rem;
+    color: $white;
+    background-image: url(../../../../assets/svg/btn-bg.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 2rem;
+    letter-spacing: 0.01em;
+    transition: 200ms ease-in-out;
+
+    &:active {
+        transform: scale(0.98);
+    }
+
+    &[data-variant*="secondary-btn"] {
+        color: $black;
+        background-image: url(../../../../assets/svg/btn-bg-2.svg);
+
+        &:hover {
+            background-image: url(../../../../assets/svg/btn-bg.png);
+        }
+    }
+}

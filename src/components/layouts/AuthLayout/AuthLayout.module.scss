@@ -1,0 +1,15 @@
+@import "../../../assets/theme/_var.scss";
+
+.auth_layout {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-image: url(../../../assets/images/auth-bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    .auth_inner {
+        margin-top: 5rem;
+    }
+}

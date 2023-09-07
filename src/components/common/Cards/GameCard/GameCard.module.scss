@@ -1,0 +1,108 @@
+@import "../../../../assets/theme/_var.scss";
+
+.game_card {
+    padding-top: 2rem;
+    padding-bottom: 3.5rem;
+
+    &:not(.coming_soon) {
+        .game_inner {
+            box-shadow: 0px 0px 80px 0px #FFBA554D;
+        }
+    }
+
+    .game_inner {
+        position: relative;
+        border: 2px solid transparent;
+        background: linear-gradient(180deg, $black, $black) padding-box, linear-gradient(180deg, #FFBA55 33.25%, rgba(255, 186, 85, 0.19) 67.37%, #FFBA55 100%) border-box;
+
+        .left_arrow,
+        .right_arrow {
+            position: absolute;
+            top: 50%;
+            z-index: 1;
+        }
+
+        .left_arrow {
+            transform: translate(-100%, -50%);
+            left: 0;
+        }
+
+        .right_arrow {
+            transform: translate(100%, -50%);
+            right: 0;
+        }
+
+        .archery_icon {
+            position: absolute;
+            top: -0.5rem;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+
+            &::after {
+                content: "";
+                width: 100%;
+                height: 2px;
+                background-color: $black;
+                position: absolute;
+                bottom: 1.2rem;
+                z-index: -1;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+
+        .game_image {
+            &::after {
+                content: "";
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                opacity: 0.8;
+                top: 0;
+                left: 0;
+                background: linear-gradient(180deg, #000000 20.08%, rgba(0, 0, 0, 0) 73.14%),
+                    linear-gradient(0deg, rgba(17, 10, 10, 0.8), rgba(17, 10, 10, 0.8)),
+                    linear-gradient(180deg, #6F6F6F 18.46%, #FFFFFF 77.53%, #3F3F3F 134.04%);
+            }
+
+            >img {
+                width: 100%;
+                min-height: 43.7rem;
+            }
+        }
+
+        .game_title {
+            position: absolute;
+            top: 3.6rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            text-align: center;
+
+            h2 {
+                padding-inline: 1rem;
+                font-size: 2.4rem;
+                font-weight: 400;
+                line-height: 2.7rem;
+                letter-spacing: 0.01em;
+                text-align: center;
+                color: $baseclr;
+                box-shadow: 0px 4px 4px 0px rgba($black, 0.251);
+            }
+        }
+
+        .action_btn {
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translate(-50%, 50%);
+        }
+    }
+
+    &.coming_soon {
+        .game_inner {
+            background: linear-gradient(180deg, $black, $black) padding-box, linear-gradient(180deg, #6F6F6F 18.46%, #FFFFFF 77.53%, #3F3F3F 134.04%) border-box;
+        }
+    }
+}

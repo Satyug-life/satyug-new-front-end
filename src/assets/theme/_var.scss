@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Aclonica&family=Nunito+Sans:opsz@6..12&display=swap');
+// ****** fonts ******* 
+$basefont: 'Aclonica',
+    sans-serif;
+$secondaryfont: 'Nunito Sans',
+    sans-serif;
+
+
+// ***** colors *****
+$baseclr: #FFD08B;
+$yellowclr: #ECC44B;
+$white: white;
+$black: black;
+$textclr: #C0C0C0;
+$textclr2: #B2B2B2;
+$errorclr: red;
+$radioBg: #585A54;
+
+// ****** gradients ******
+$gradient: linear-gradient(270deg, rgba(255, 246, 196, 0) 0%, #FFF6C4 50%, rgba(255, 246, 196, 0) 100%);
+$gradient2: linear-gradient(270deg, rgba(255, 246, 196, 0) 0%, #FFBA55 50%, rgba(255, 246, 196, 0) 100%);

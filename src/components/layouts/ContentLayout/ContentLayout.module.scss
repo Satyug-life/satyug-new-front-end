@@ -1,0 +1,51 @@
+@import "../../../assets/theme/_var.scss";
+
+
+.content_layout {
+    padding: 6rem 0 0;
+
+    :global {
+        .container {
+            max-width: 166.6rem;
+        }
+    }
+
+    .content_inner {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        @media (max-width: 991px) {
+            flex-wrap: wrap;
+        }
+
+        .content_left {
+            max-width: 100%;
+            width: 60rem;
+            text-align: center;
+
+            @media (max-width: 991px) {
+                flex: 0 0 100%;
+                margin-bottom: 2rem;
+            }
+
+            &_inner {
+                margin: 0 auto;
+                max-width: 43.4rem;
+            }
+
+        }
+
+        .content_right {
+            padding-left: 2rem;
+            align-self: flex-end;
+
+            @media (max-width: 991px) {
+                flex: 0 0 100%;
+                text-align: center;
+                padding-left: 0;
+            }
+        }
+    }
+}
