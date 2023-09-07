@@ -1,9 +1,9 @@
-import React, { Suspense } from 'react'
+import React, { Suspense } from 'react';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import HomeLayout from './components/layouts/HomeLayout/HomeLayout';
 import routes, { authRoutes } from './Routes/routes';
 import Loader from './components/common/Loader/Loader';
 import AuthLayout from './components/layouts/AuthLayout/AuthLayout';
+import HomeLayout from './components/layouts/HomeLayout/HomeLayout';
 
 const Application = () => {
     const router = createBrowserRouter([
@@ -21,7 +21,7 @@ const Application = () => {
                 ...authRoutes
             ]
         },
-       
+        
     ]);
     return (
         <>

@@ -5,7 +5,6 @@ import { Outlet, useLocation } from 'react-router-dom'
 const HomeLayout = () => {
 
    
-    
 
     return (
         <main className={`${styles.home_layout}`}>
