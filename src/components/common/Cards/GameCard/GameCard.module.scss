@@ -20,6 +20,10 @@
             position: absolute;
             top: 50%;
             z-index: 1;
+
+            @media (max-width: 1439px) {
+                width: 1.4rem;
+            }
         }
 
         .left_arrow {
@@ -42,10 +46,10 @@
             &::after {
                 content: "";
                 width: 100%;
-                height: 2px;
+                height: 2.5px;
                 background-color: $black;
                 position: absolute;
-                bottom: 1.2rem;
+                top: 2rem;
                 z-index: -1;
                 left: 50%;
                 transform: translateX(-50%);
@@ -61,34 +65,158 @@
                 opacity: 0.8;
                 top: 0;
                 left: 0;
-                background: linear-gradient(180deg, #000000 20.08%, rgba(0, 0, 0, 0) 73.14%),
-                    linear-gradient(0deg, rgba(17, 10, 10, 0.8), rgba(17, 10, 10, 0.8)),
-                    linear-gradient(180deg, #6F6F6F 18.46%, #FFFFFF 77.53%, #3F3F3F 134.04%);
+                background: linear-gradient(181deg, #000 0%, rgba(0, 0, 0, 0.2) 45.94%);
             }
 
             >img {
                 width: 100%;
                 min-height: 43.7rem;
+
+                @media (max-width: 1679px) {
+                    min-height: 38rem;
+                }
+
+                @media (max-width: 1365px) {
+                    min-height: 34rem;
+                }
+
+                @media (max-width: 991px) {
+                    min-height: 28rem;
+                }
+
+                @media (max-height: 479px) {
+                    min-height: 26rem;
+                }
+
+                @media (max-height: 379px) {
+                    min-height: 20rem;
+                }
             }
         }
 
         .game_title {
             position: absolute;
-            top: 3.6rem;
+            top: 0rem;
+            height: 100%;
+            padding: 3rem 1rem 0;
             left: 50%;
             transform: translateX(-50%);
             width: 100%;
             text-align: center;
+            display: flex;
+            flex-direction: column;
+
+            @media (max-width: 991px) {
+                padding: 02rem 0.6rem 0;
+            }
 
             h2 {
-                padding-inline: 1rem;
                 font-size: 2.4rem;
                 font-weight: 400;
                 line-height: 2.7rem;
                 letter-spacing: 0.01em;
                 text-align: center;
                 color: $baseclr;
-                box-shadow: 0px 4px 4px 0px rgba($black, 0.251);
+                filter: drop-shadow(0px 4px 4px rgba($black, 0.243));
+
+                @media (max-width: 1679px) {
+                    font-size: 2rem;
+                }
+
+                @media (max-width: 1439px) {
+                    font-size: 1.8rem;
+                }
+
+                @media (max-width: 1365px) {
+                    font-size: 1.6rem;
+                }
+
+                @media (max-width: 1199px) {
+                    font-size: 1.4rem;
+                    line-height: 2rem;
+                }
+
+                @media (max-width: 767px) {
+                    font-size: 1.1rem;
+                    line-height: 1.4rem;
+                }
+            }
+
+            .coming_soon_img {
+                margin: auto auto;
+                position: relative;
+
+                p {
+                    font-size: 2rem;
+                    font-weight: 400;
+                    line-height: 2rem;
+                    letter-spacing: 0.01em;
+                    text-align: center;
+                    color: $white;
+                    filter: drop-shadow(0px 2px 4px #000000);
+                    position: absolute;
+                    top: 50%;
+                    z-index: 12;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+
+                    @media (max-width: 1679px) {
+                        font-size: 1.6rem;
+                    }
+
+                    @media (max-width: 991px) {
+                        font-size: 1.4rem;
+                    }
+
+                    @media (max-width: 767px) {
+                        font-size: 1.1rem;
+                        line-height: 1.5rem;
+                    }
+                }
+
+                :global {
+                    @keyframes rotation {
+                        from {
+                            transform: rotate(0);
+                        }
+
+                        to {
+                            transform: rotate(360deg);
+                        }
+                    }
+                }
+
+                img {
+                    max-width: 22rem;
+                    transition: 0.5s linear;
+                    width: 100%;
+
+
+                    @media (max-width: 1679px) {
+                        max-width: 16rem;
+                    }
+
+                    @media (max-width: 1365px) {
+                        max-width: 12rem;
+                    }
+
+                    @media (max-width: 991px) {
+                        max-width: 9rem;
+                    }
+
+                    @media (max-width: 767px) {
+                        max-width: 8rem;
+                    }
+                }
+            }
+
+            &:hover {
+                .coming_soon_img {
+                    img {
+                        animation: rotation 4s linear infinite;
+                        // transform: rotate(90deg);
+                    }
+                }
             }
         }
 
@@ -97,6 +225,26 @@
             left: 50%;
             bottom: 0;
             transform: translate(-50%, 50%);
+
+            @media (max-width: 1679px) {
+                width: 100%;
+                height: 5rem;
+                font-size: 1.8rem;
+            }
+
+            @media (max-width: 1365px) {
+                height: 5.2rem;
+                font-size: 1.3rem;
+            }
+
+            @media (max-width: 1199px) {
+                height: 4.5rem;
+            }
+
+            @media (max-width: 991px) {
+                height: 3.1rem;
+                font-size: 1.2rem;
+            }
         }
     }
 

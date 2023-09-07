@@ -7,7 +7,7 @@
 
     thead {
 
-        @media (max-width: 767px) {
+        @media (max-width: 575px) {
             display: none;
         }
 
@@ -23,6 +23,15 @@
                 vertical-align: middle;
                 white-space: nowrap;
                 border: none;
+
+                @media (max-height: 619px) and (max-width: 1439px) {
+                    font-size: 1.4rem;
+                    padding: 1rem 1.6rem;
+                }
+
+                @media (max-height: 479px) and (max-width: 1439px) {
+                    font-size: 1.2rem;
+                }
 
                 &:first-child {
                     border-radius: 0.4rem 0 0 0.4rem;
@@ -50,6 +59,16 @@
                 line-height: 2.2rem;
                 text-align: left;
 
+                @media (max-height: 619px) and (max-width: 1439px) {
+                    font-size: 1.4rem;
+                    padding: 1rem 1.6rem;
+                }
+
+                @media (max-height: 479px) and (max-width: 1439px) {
+                    font-size: 1.2rem;
+                    padding: 0.6rem 1rem;
+                }
+
                 &:first-child {
                     border-radius: 0.4rem 0 0 0.4rem;
                     padding-left: 4rem;
@@ -59,7 +78,9 @@
                     border-radius: 0.4rem 0.4rem 0 0;
                 }
 
-                @media (max-width: 767px) {
+                @media (max-width: 479px) {
+                    font-size: 1.4rem;
+
                     &:first-child {
                         border-radius: 0.4rem 0.4rem 0 0;
                         padding: 1.4rem 2rem;
@@ -70,12 +91,21 @@
                     }
                 }
 
+                @media (max-height: 575px) {
+                    padding: 1rem;
+                    font-size: 1.2rem;
+
+                    &:first-child {
+                        padding: 1rem;
+                    }
+                }
+
                 :global {
                     .table_heading {
                         display: none;
                     }
 
-                    @media (max-width: 767px) {
+                    @media (max-width: 479px) {
                         border: none;
                         display: flex;
                         align-items: center;

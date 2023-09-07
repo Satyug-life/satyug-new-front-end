@@ -1,0 +1,178 @@
+@import "../../../assets/theme/_var.scss";
+
+.games {
+    padding-top: 9.1rem;
+    overflow: hidden;
+
+    @media (max-width: 1679px) {
+        padding-top: 6rem;
+    }
+
+    @media (max-width: 1439px) {
+        padding-top: 4rem;
+    }
+
+    :global {
+        .container {
+            max-width: 175.2rem;
+            padding-inline: 1.5rem;
+
+            @media (max-width: 1919px) {
+                max-width: 166rem;
+            }
+
+            @media (max-width: 1679px) {
+                max-width: 136rem;
+            }
+
+            // @media (max-width: 1399px) {
+            //     max-width: 112rem;
+            // }
+
+            // @media (max-width: 1199px) {
+            //     max-width: 99rem;
+            // }
+        }
+    }
+
+    .games_inner {
+        min-height: 100vh;
+        display: flex;
+        padding: 10rem 0;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+        z-index: 1;
+
+        @media (max-width: 1679px) {
+            padding: 6rem 0;
+        }
+
+        @media (max-width: 1439px) {
+            padding: 4rem 0;
+        }
+
+        @media (max-width: 1199px) {
+            padding: 3rem 0;
+        }
+
+        .games_logo {
+            z-index: 1;
+
+            @media (min-width: 1440px) {
+                transform: translateY(100%);
+            }
+        }
+
+        .animation {
+            position: absolute;
+            top: 50%;
+            opacity: 0.8;
+            left: 50%;
+            z-index: -1;
+            transform: translate(-50%, -50%);
+        }
+
+        :global {
+            .slick-slider {
+                width: 100%;
+            }
+
+            .slick-list {
+                padding-top: 12rem;
+
+                @media (max-width: 1439px) {
+                    padding-top: 4rem;
+                }
+
+                @media (max-height: 375px) {
+                    padding-top: 2rem;
+                }
+            }
+
+            .slick-track {
+                display: flex;
+
+                .slick-slide {
+                    height: auto;
+                    padding-inline: 3rem;
+                    transition: 200ms ease-in-out;
+
+                    @media (max-width: 1679px) {
+                        padding-inline: 2rem;
+                    }
+
+                    @media (max-width: 1439px) {
+                        padding-inline: 1.4rem;
+                    }
+
+                    @media (max-width: 767px) and (max-height: 479px) {
+                        padding-inline: 0.7rem;
+                    }
+
+                    // $transformValues : (1 : 100px,
+                    //         "1" : -120px,
+                    //         "2" : -60px,
+                    //         "3": 0,
+                    //         "4": -60px,
+                    //         "5": -120px,
+                    //     );
+
+                    // @each $key,
+                    // $value in $transformValues {
+                    //     &:nth-child(#{$key}) {
+                    //         >div {
+                    //             >div {
+                    //                 transform: translateY(#{$value});
+                    //             }
+                    //         }
+                    //     }
+                    // }
+
+                    @media (min-width: 1440px) {
+                        &[aria-hidden="true"] {
+                            transform: translateY(-18rem);
+                        }
+
+                        &.slick-current {
+                            transform: translateY(-12rem);
+
+                            +div {
+                                transform: translateY(-6rem);
+
+                                +div {
+                                    transform: translateY(0rem);
+
+                                    +div {
+                                        transform: translateY(-6rem);
+
+                                        +div {
+                                            transform: translateY(-12rem);
+
+                                            +div {
+                                                transform: translateY(-18rem);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    >div {
+                        height: 100%;
+
+                        >div {
+                            height: 100%;
+
+                            >div {
+                                height: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

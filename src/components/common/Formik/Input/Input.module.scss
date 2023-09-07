@@ -17,6 +17,14 @@
         line-height: 2.24rem;
         color: $baseclr;
 
+        @media (max-width: 1199px) {
+            font-size: 1.4rem;
+        }
+
+        @media (max-height: 619px) and (max-width: 1439px) {
+            font-size: 1.2rem;
+        }
+
         @media (max-width: 575px) {
             margin-bottom: 1rem;
         }
@@ -41,6 +49,27 @@
             border: none;
             outline: none;
             height: 6rem;
+
+            @media (max-height: 619px) and (max-width: 1439px) {
+                height: 4.8rem;
+                font-size: 1.4rem;
+            }
+
+            @media (max-height: 479px) and (max-width: 1439px) {
+                height: 4rem;
+            }
+
+            @media (max-height: 419px) and (max-width: 1439px) {
+                height: 3.6rem;
+            }
+
+            @media (max-width: 991px) {
+                height: 5rem;
+            }
+
+            @media (max-width: 575px) {
+                border: 1px solid rgba($white, 0.12);
+            }
 
             &::placeholder {
                 color: rgba($white, 0.5);

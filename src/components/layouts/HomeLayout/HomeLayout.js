@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react';
+import { Outlet } from 'react-router-dom';
 import styles from "./Homelayout.module.scss";
-import { Outlet, useLocation } from 'react-router-dom'
 
 const HomeLayout = () => {
 
    
-
+  
     return (
         <main className={`${styles.home_layout}`}>
             <Outlet />

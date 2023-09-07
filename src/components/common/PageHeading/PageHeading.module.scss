@@ -1,0 +1,30 @@
+@import "../../../assets/theme/_var.scss";
+
+.page_heading {
+    h2 {
+        font-size: 2.4rem;
+        font-weight: 400;
+        letter-spacing: 0em;
+        color: $baseclr;
+
+        @media (max-width: 1439px) {
+            font-size: 2.2rem;
+        }
+
+        @media (max-width: 1199px) {
+            font-size: 2rem;
+        }
+
+        @media (max-width: 767px) {
+            font-size: 1.8rem;
+        }
+
+        @media (max-height: 619px) and (max-width: 1439px) {
+            font-size: 1.8rem;
+        }
+
+        @media (max-height: 479px) and (max-width: 1439px) {
+            font-size: 1.6rem;
+        }
+    }
+}

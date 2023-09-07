@@ -11,5 +11,9 @@
 
     .auth_inner {
         margin-top: 5rem;
+
+        @media (max-height: 619px) and (max-width: 1439px) {
+            margin-top: 3rem;
+        }
     }
 }
