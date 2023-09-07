@@ -1,6 +1,29 @@
 @import "../../../assets/theme/_var.scss";
 
-.error_msg {
-    font-size: 1.4rem;
-    color: $errorclr;
+
+.error_page,
+.not_found {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    background-image: url(../../../assets/images/question-page.png);
+    z-index: 1;
+
+    &::after {
+        content: "";
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-image: url(../../../assets/images/login-bg-overlay.svg);
+        background-size: cover;
+        background-position: top;
+        background-repeat: no-repeat;
+    }
 }

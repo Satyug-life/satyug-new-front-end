@@ -20,7 +20,7 @@ h6 {
 
 img,
 svg,
-image,
+video,
 canvas {
     max-width: 100%;
 }
@@ -79,4 +79,14 @@ ul {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+}
+
+.Toastify__toast-container {
+    width: 100vw;
+
+    .Toastify__toast-theme--light {
+        background-color: transparent;
+        padding: 0;
+        justify-content: center;
+    }
 }

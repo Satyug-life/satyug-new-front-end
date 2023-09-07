@@ -1,9 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Aclonica&family=Nunito+Sans:opsz@6..12&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Aclonica&family=Alex+Brush&family=Nunito+Sans:opsz@6..12&display=swap');
 // ****** fonts ******* 
-$basefont: 'Aclonica',
-    sans-serif;
-$secondaryfont: 'Nunito Sans',
-    sans-serif;
+$basefont: 'Aclonica', sans-serif;
+$secondaryfont: 'Nunito Sans', sans-serif;
+$cursivefont: 'Alex Brush', cursive;
 
 
 // ***** colors *****
@@ -11,6 +10,7 @@ $baseclr: #FFD08B;
 $baseclr2: #FFBA55;
 $yellowclr: #ECC44B;
 $yellowclr2: #FEC045;
+$green: #06BC0A;
 $white: white;
 $black: black;
 $textclr: #C0C0C0;
@@ -18,6 +18,7 @@ $textclr2: #B2B2B2;
 $errorclr: red;
 $radioBg: #585A54;
 $black23: #232323;
+$black18: #181818;
 
 // ****** gradients ******
 $gradient: linear-gradient(270deg, rgba(255, 246, 196, 0) 0%, #FFF6C4 50%, rgba(255, 246, 196, 0) 100%);

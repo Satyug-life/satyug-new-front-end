@@ -38,7 +38,7 @@ const Homepage = () => {
                                 className={styles.animation}
                             />
                             <Button
-                                onClick={() => navigate('/games')}
+                                // onClick={() => navigate('/games')}
                                 text="Dhyana"
                             />
                         </div>
@@ -49,7 +49,7 @@ const Homepage = () => {
                                 className={styles.animation}
                             />
                             <Button
-                                onClick={() => navigate('/games')}
+                                // onClick={() => navigate('/games')}
                                 text="Yog"
                             />
                         </div>
@@ -60,7 +60,7 @@ const Homepage = () => {
                                 className={styles.animation}
                             />
                             <Button
-                                onClick={() => navigate('/games')}
+                                // onClick={() => navigate('/games')}
                                 text="Darshan"
                             />
                         </div>

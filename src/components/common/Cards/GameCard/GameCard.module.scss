@@ -4,22 +4,18 @@
     padding-top: 2rem;
     padding-bottom: 3.5rem;
 
-    &:not(.coming_soon) {
-        .game_inner {
-            box-shadow: 0px 0px 80px 0px #FFBA554D;
-        }
-    }
-
     .game_inner {
+        transition: 200ms ease-in-out;
         position: relative;
         border: 2px solid transparent;
-        background: linear-gradient(180deg, $black, $black) padding-box, linear-gradient(180deg, #FFBA55 33.25%, rgba(255, 186, 85, 0.19) 67.37%, #FFBA55 100%) border-box;
+        background: linear-gradient(180deg, $black, $black) padding-box, linear-gradient(180deg, #FFBA55 33.25%, #FFBA55 67.37%, #FFBA55 100%) border-box;
 
         .left_arrow,
         .right_arrow {
             position: absolute;
             top: 50%;
             z-index: 1;
+            display: none;
 
             @media (max-width: 1439px) {
                 width: 1.4rem;
@@ -70,26 +66,28 @@
 
             >img {
                 width: 100%;
-                min-height: 43.7rem;
+                height: 43.7rem;
+                object-fit: cover;
+                object-position: center;
 
                 @media (max-width: 1679px) {
-                    min-height: 38rem;
+                    height: 38rem;
                 }
 
                 @media (max-width: 1365px) {
-                    min-height: 34rem;
+                    height: 34rem;
                 }
 
                 @media (max-width: 991px) {
-                    min-height: 28rem;
+                    height: 28rem;
                 }
 
-                @media (max-height: 479px) {
-                    min-height: 26rem;
+                @media (max-height: 479px) and (max-width: 1199px) {
+                    height: 26rem;
                 }
 
-                @media (max-height: 379px) {
-                    min-height: 20rem;
+                @media (max-height: 419px) and (max-width: 1199px) {
+                    height: 20rem;
                 }
             }
         }
@@ -174,6 +172,24 @@
                     }
                 }
 
+                &.locked_img {
+                    img {
+                        max-width: 16.9rem;
+
+                        @media (max-height: 619px) {
+                            max-width: 10rem;
+                        }
+
+                        @media (max-height: 479px) {
+                            max-width: 8rem;
+                        }
+
+                        @media (max-height: 419px) {
+                            max-width: 6rem;
+                        }
+                    }
+                }
+
                 :global {
                     @keyframes rotation {
                         from {
@@ -216,6 +232,13 @@
                         animation: rotation 4s linear infinite;
                         // transform: rotate(90deg);
                     }
+
+                    &.locked_img {
+                        img {
+                            animation: unset;
+                            transform: scale(1.1);
+                        }
+                    }
                 }
             }
         }
@@ -228,6 +251,7 @@
 
             @media (max-width: 1679px) {
                 width: 100%;
+                max-width: 21rem;
                 height: 5rem;
                 font-size: 1.8rem;
             }
@@ -245,12 +269,23 @@
                 height: 3.1rem;
                 font-size: 1.2rem;
             }
+
+            @media (max-height: 419px) and (max-width: 767px) {
+                font-size: 0.8rem;
+                max-width: 8rem;
+                height: 2.2rem;
+            }
         }
     }
 
-    &.coming_soon {
+    &:hover {
         .game_inner {
-            background: linear-gradient(180deg, $black, $black) padding-box, linear-gradient(180deg, #6F6F6F 18.46%, #FFFFFF 77.53%, #3F3F3F 134.04%) border-box;
+            box-shadow: 0px 0px 80px 0px #FFBA554D;
+
+            .left_arrow,
+            .right_arrow {
+                display: block
+            }
         }
     }
 }

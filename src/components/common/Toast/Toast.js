@@ -1,38 +1,58 @@
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+// const TOAST_TYPE = {
+//   SUCCESS: "success",
+//   ERROR: "error",
+//   WARNING: "warning",
+//   INFO: "info",
+// };
+
 const toastOptions = {
-  position: "bottom-right",
-  autoClose: 5000,
-  hideProgressBar: false,
+  position: "top-right",
+  autoClose: 1000,
   closeOnClick: true,
   pauseOnHover: true,
   draggable: true,
+  progress: false,
+  hideProgressBar: true,
+  theme: "dark",
 };
 
-export const toasts = {
-  success: (message) => {
+class Toaster {
+  success = (message) => {
+
     toast.success(message, {
       ...toastOptions,
-      type: toast.TYPE.SUCCESS,
     });
-  },
-  error: (message) => {
+  };
+  error = (message) => {
     toast.error(message, {
       ...toastOptions,
-      type: toast.TYPE.ERROR,
     });
-  },
-  warn: (message) => {
+  };
+  warn = (message) => {
     toast.warn(message, {
       ...toastOptions,
-      type: toast.TYPE.WARNING,
     });
-  },
-  info: (message) => {
+  };
+  info = (message) => {
     toast.info(message, {
       ...toastOptions,
-      type: toast.TYPE.INFO,
     });
-  },
-};
+  };
+}
+export const toasts = new Toaster();
+// export const showToast = (message, type) => {
+//   toast(message, {
+//     ...toastOptions,
+//     type,
+//   });
+// };
+
+// export const toasts = {
+//   success: (message) => showToast(message, TOAST_TYPE.SUCCESS),
+//   error: (message) => showToast(message, TOAST_TYPE.ERROR),
+//   warn: (message) => showToast(message, TOAST_TYPE.WARNING),
+//   info: (message) => showToast(message, TOAST_TYPE.INFO),
+// };

@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { Navigate, useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { Navigate } from "react-router-dom";
+import { useQuery } from "../hooks/useQuery";
 
-const AuthGuard = ({ children, redirectPath = "/",type }) => {
+const AuthGuard = ({ children, redirectPath = "/", type }) => {
+  const query = useQuery();
+  const dispatch = useDispatch();
+
   const [isValidated, setIsValidated] = useState(true);
-  const params= useParams()
   useEffect(() => {
-
-    
+  
   }, []);
   if (!isValidated) {
     return <Navigate to={redirectPath} replace />;

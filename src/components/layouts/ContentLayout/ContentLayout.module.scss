@@ -4,6 +4,22 @@
 .content_layout {
     padding: 6rem 0 0;
 
+    @media (max-height: 619px) and (max-width: 1439px) {
+        padding: 3rem 0 0;
+    }
+
+    @media (max-height: 479px) and (max-width: 1199px) {
+        padding: 2rem 0 0;
+
+        .back_btn {
+            position: absolute;
+        }
+    }
+
+    @media (max-height: 419px) and (max-width: 991px) {
+        padding: 1rem 0 0;
+    }
+
     :global {
         .container {
             max-width: 166.6rem;
@@ -11,23 +27,36 @@
     }
 
     .content_inner {
-        min-height: 100vh;
+        min-height: calc(100vh - 8.9rem);
         display: flex;
         align-items: center;
         justify-content: space-between;
 
-        @media (max-width: 991px) {
-            flex-wrap: wrap;
+        @media (max-height: 619px) and (max-width: 1439px) {
+            min-height: calc(100vh - 5.9rem);
         }
+
+
+        @media (max-height: 479px) and (max-width: 1199px) {
+            min-height: calc(100vh - 2rem);
+        }
+
+        @media (max-height: 419px) and (max-width: 991px) {
+            min-height: calc(100vh - 1rem);
+        }
+
+        // @media (max-width: 991px) {
+        //     flex-wrap: wrap;
+        // }
 
         .content_left {
             max-width: 100%;
             width: 60rem;
             text-align: center;
+            padding-bottom: 2rem;
 
-            @media (max-width: 991px) {
-                flex: 0 0 100%;
-                margin-bottom: 2rem;
+            @media (max-width: 991px) and (max-height: 619px) {
+                width: 40rem;
             }
 
             &_inner {
@@ -41,11 +70,32 @@
             padding-left: 2rem;
             align-self: flex-end;
 
-            @media (max-width: 991px) {
-                flex: 0 0 100%;
-                text-align: center;
-                padding-left: 0;
+            @media (max-width: 1439px) {
+                img {
+                    max-width: 40rem;
+                }
             }
+
+            @media (max-width: 1199px) {
+                img {
+                    max-width: 30rem;
+                }
+            }
+
+            @media (max-height: 619px) and (max-width: 991px) {
+                padding-left: 0;
+                margin-inline: auto;
+
+                img {
+                    max-width: 20rem;
+                }
+            }
+
+            // @media (max-width: 991px) {
+            //     flex: 0 0 100%;
+            //     text-align: center;
+            //     padding-left: 0;
+            // }
         }
     }
 }

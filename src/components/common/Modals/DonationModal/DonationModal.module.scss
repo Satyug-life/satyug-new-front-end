@@ -72,6 +72,7 @@
 
         label {
             margin-bottom: 1.2rem;
+            transform: none;
 
             @media (max-height: 619px) and (max-width: 1199px) {
                 margin-bottom: 0.4rem;
@@ -117,16 +118,6 @@
                 border-radius: 0.4rem;
                 border: 1px solid $black;
 
-                @media (max-height: 619px) and (max-width: 1199px) {
-                    height: 3.4rem;
-                    padding-inline: 1rem;
-                    font-size: 1.4rem;
-
-                    svg {
-                        max-width: 1.8rem;
-                        margin-right: 0.4rem;
-                    }
-                }
 
                 @media (max-width: 991px) {
                     height: 3.8rem;
@@ -138,10 +129,28 @@
                     }
                 }
 
+                @media (max-height: 619px) and (max-width: 1199px) {
+                    height: 3.4rem;
+                    padding-inline: 1rem;
+                    font-size: 1.4rem;
+
+                    svg {
+                        max-width: 1.8rem;
+                        margin-right: 0.4rem;
+                    }
+                }
+
                 &.active {
                     border-color: $baseclr;
                 }
             }
+        }
+    }
+
+    .proceed_btn {
+        @media (max-height: 419px) {
+            height: 3.4rem;
+            max-width: 14rem;
         }
     }
 }

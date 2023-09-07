@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from "../../../pages/ErrorPage/ErrorPage.module.scss";
+import styles from "./Errormsg.module.scss";
 
 const ErrorMsg = ({ children }) => {
     return (

@@ -20,6 +20,12 @@
         padding: 6rem 0;
     }
 
+    @media (max-height: 619px) {
+        padding: 2rem 0;
+        display: flex;
+        align-items: center;
+    }
+
     .home_inner {
 
         .logo {
@@ -37,8 +43,14 @@
                 max-width: 8rem;
             }
 
+            @media (max-height: 619px) and (max-width: 1439px) {
+                max-width: 7rem;
+                margin: 0 auto 4rem;
+            }
+
             @media (max-height: 479px) and (max-width: 1439px) {
                 margin: 0 auto 2rem;
+                max-width: 6rem;
             }
         }
 
@@ -90,11 +102,18 @@
                 flex-wrap: wrap;
 
                 .home_box {
-                    flex: 0 0 50%;
+                    // flex: 0 0 50%;
                     padding: 1.2rem;
 
                     img {
                         max-width: 20rem;
+                        width: 100%;
+                    }
+
+                    button {
+                        width: 100%;
+                        max-width: 16rem;
+                        height: 4rem;
                     }
 
                     &:first-child,
@@ -109,11 +128,6 @@
                     img {
                         max-width: 16rem;
                     }
-
-                    button {
-                        height: 4rem;
-                        width: 100%;
-                    }
                 }
             }
 
@@ -122,6 +136,33 @@
                     button {
                         height: 3.5rem;
                         font-size: 1.2rem;
+                    }
+                }
+            }
+
+            @media (max-height: 619px) and (max-width: 1439px) {
+                .home_box {
+                    img {
+                        max-width: 14rem;
+                    }
+
+                    button {
+                        height: 3.2rem;
+                        font-size: 1.2rem;
+                    }
+                }
+            }
+
+            @media (max-height: 479px) {
+                .home_box {
+                    img {
+                        max-width: 10rem;
+                    }
+
+                    button {
+                        height: 2.8rem;
+                        max-width: 12rem;
+                        font-size: 1rem;
                     }
                 }
             }

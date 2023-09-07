@@ -20,5 +20,13 @@
         img {
             margin-right: 0.3rem;
         }
+
+        @media (max-height: 619px) and (max-width: 1199px) {
+            font-size: 1.4rem;
+        }
+
+        @media (max-height: 419px) and (max-width: 991px) {
+            font-size: 1.2rem;
+        }
     }
 }

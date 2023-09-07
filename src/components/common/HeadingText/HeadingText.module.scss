@@ -33,11 +33,29 @@
         @media (max-width: 767px) {
             font-size: 1.8rem;
         }
+
+        @media (max-height: 619px) {
+            font-size: 2rem;
+        }
+
+        @media (max-height: 479px) {
+            font-size: 1.8rem;
+        }
+
+        @media (max-height : 419px) {
+            font-size: 1.6rem;
+        }
     }
 
     @media (max-width: 1199px) {
         span {
             max-width: 6rem;
+        }
+    }
+
+    @media (max-height: 419px) {
+        span {
+            max-width: 4rem;
         }
     }
 }

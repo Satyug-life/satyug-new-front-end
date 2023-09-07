@@ -1,0 +1,114 @@
+@import "../../../assets/theme/_var.scss";
+
+.home_video {
+    .home_content {
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        padding: 2rem 10rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        top: 0;
+        left: 0;
+        opacity: 1;
+        visibility: visible;
+        transition: 200ms ease-in-out;
+
+        img {
+            @media (max-width: 1439px) {
+                max-width: 10rem;
+            }
+
+            @media (max-width: 1199px) {
+                max-width: 8rem;
+            }
+
+            @media (max-width: 991px) {
+                max-width: 6.5rem;
+            }
+
+            @media (max-width: 767px) {
+                font-size: 2.8rem;
+            }
+
+            @media (max-width: 575px) {
+                font-size: 2.4rem;
+            }
+
+            @media (max-height: 619px) {
+                max-width: 10rem;
+            }
+
+            @media (max-height: 479px) {
+                max-width: 8rem;
+            }
+
+            @media (max-height: 419px) {
+                max-width: 6.5rem;
+            }
+        }
+
+        button {
+            font-family: $cursivefont;
+            font-size: 6.5rem;
+            padding: 0;
+            outline: none;
+            background-color: transparent;
+            border: none;
+            transform: translateY(-8rem);
+
+            @media (max-width: 1439px) {
+                font-size: 4rem;
+            }
+
+            @media (max-width: 1199px) {
+                font-size: 3.6rem;
+            }
+
+            @media (max-width: 991px) {
+                font-size: 3.2rem;
+            }
+
+            @media (max-width: 767px) {
+                font-size: 2.8rem;
+            }
+
+            @media (max-width: 575px) {
+                font-size: 2.4rem;
+            }
+
+            @media (max-height: 619px) {
+                font-size: 4rem;
+            }
+
+            @media (max-height: 479px) {
+                font-size: 3.6rem;
+            }
+
+            @media (max-height: 419px) {
+                font-size: 3rem;
+            }
+        }
+
+        &.hide {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+    }
+
+    .skip_btn {
+        position: fixed;
+        bottom: 4rem;
+        right: 4rem;
+        // background-color: $baseclr;
+        // height: 5rem;
+        // padding-inline: 2rem;
+        // border-radius: 0.4rem;
+        // outline: none;
+        // border: 1px solid $baseclr2;
+        // color: $white;
+        // font-size: 1.6rem;
+    }
+}

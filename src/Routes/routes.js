@@ -1,34 +1,36 @@
 import { lazy } from "react";
-import Homepage from "../components/pages/Homepage/Homepage";
-import ProtectedRoute from "./ProtectedRoute";
+import AboutUs from "../components/pages/AboutUs/AboutUs";
+import HomeVideo from "../components/pages/HomeVideo/HomeVideo";
 
+const Homepage = lazy(() => import("../components/pages/Homepage/Homepage"));
 
 const Games = lazy(() => import("../components/pages/Games/Games"));
 
 const routes = [
   
- 
   {
     path: "games",
     element: <Games />,
   },
   
+  
+  
   {
-    index: true,
+    path: "home",
     element: <Homepage />,
   },
- 
-];
-export const authRoutes = [
+  
+  
+  
   {
-    path: "my-collectibles",
-    element: (
-      <ProtectedRoute>
-        < ></>
-      </ProtectedRoute>
-    ),
+    index: true,
+    element: <HomeVideo />,
   },
-
+  {
+    path: "about-us",
+    element: <AboutUs />,
+  },
+ 
   
 ];
 

@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import styles from "./Input.module.scss";
 import { ErrorMessage, Field } from 'formik';
 import ErrorMsg from '../ErrorMsg/ErrorMsg';
 
-const Input = ({ name, formik, error, label, className, ...rest }) => {
+const Input = forwardRef(({ name, formik, error, label, className, ...rest }, ref) => {
     return (
         <div className={`${styles.input} ${className || ""}`}>
             {
@@ -15,11 +15,12 @@ const Input = ({ name, formik, error, label, className, ...rest }) => {
                     {...rest}
                     id={name}
                     name={name}
+                    innerRef={ref} // Pass the forwarded ref to the underlying Field component
                 />
+                <ErrorMessage name={name} component={ErrorMsg} />
             </div>
-            <ErrorMessage name={name} component={ErrorMsg} />
         </div>
     );
-};
+});
 
 export default Input;
