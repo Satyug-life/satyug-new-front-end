@@ -8,7 +8,7 @@ export const axiosApi = axios.create({
   baseURL: BASE_URL,
 });
 
-//request interceptor
+
 axiosApi.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem("token");

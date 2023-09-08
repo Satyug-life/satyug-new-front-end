@@ -17,7 +17,7 @@ const PortraitModal = ({ show, handleClose }) => {
           <RotateMobile />
         </span>
         <p>
-          For Better experience switch to landscape mode
+          For Better experience switch to landscape mode!
         </p>
       </Modal.Body>
     </Modal>

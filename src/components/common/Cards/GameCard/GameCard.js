@@ -33,10 +33,7 @@ const GameCard = ({ playCard, dataAos, gameImage, gameImageClass, gameTitle, com
                         </div>
                     }
                 </div>
-                <LottieAnimation
-                    animation={fireSparkles}
-                    className={styles.fire_sparkles}
-                />
+               
                 {
                     comingSoon ?
                         null
@@ -61,7 +58,6 @@ const GameCard = ({ playCard, dataAos, gameImage, gameImageClass, gameTitle, com
                                 <Button
                                     text="Play Now"
                                     className={styles.action_btn}
-                                    onClick={() => navigate("/continue")}
                                 />
                 }
             </div>
