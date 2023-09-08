@@ -6,6 +6,8 @@ const Button = ({ className, variant, text, ...rest }) => {
         <button
             {...rest}
             className={`${styles.button} ${className || ""}`}
+            data-aos="zoom-in"
+            data-aos-offset="-400"
             data-variant={variant || ""}
         >
             {text}

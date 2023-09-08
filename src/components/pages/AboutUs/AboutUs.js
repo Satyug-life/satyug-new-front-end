@@ -1,16 +1,16 @@
 import React from 'react';
-import styles from "./AboutUs.module.scss";
-import aboutVideo from "../../../assets/videos/about-us-video.mp4";
-import PageHeading from '../../common/PageHeading/PageHeading';
 import { Container } from 'react-bootstrap';
-import { DiscordIcon, GithubIcon, RedditIcon, TelegramIcon, TwitterIcon } from '../../../assets/svg/svgicons';
 import { Link } from 'react-router-dom';
+import { DiscordIcon, GithubIcon, RedditIcon, TelegramIcon, TwitterIcon } from '../../../assets/svg/svgicons';
+import PageHeading from '../../common/PageHeading/PageHeading';
+import styles from "./AboutUs.module.scss";
+import { S3_BUCKET } from '../../../utils/Constants';
 
 const AboutUs = () => {
     return (
         <section className={styles.about_us}>
-            <video autoPlay className={styles.about_video} muted>
-                <source src={aboutVideo} type="video/mp4" />
+            <video  playsInline  autoPlay  className={styles.about_video} muted>
+                <source src={`${S3_BUCKET.VIDEOS}/about-us.mp4`} type="video/mp4" />
             </video>
             <Container>
                 <div className={styles.about_content}>
@@ -39,63 +39,63 @@ const AboutUs = () => {
                     <footer>
                         <ul className={styles.footer_links}>
                             <li>
-                                <Link to="">Satyug Whitepaper</Link>
+                                <Link target="_blank" rel="noopener noreferrer" to="https://drive.google.com/file/d/1ajamewqmu4OmSuH4AkC6qyGQcUrxov0O/view">Satyug Whitepaper</Link>
                             </li>
                             <li>
-                                <Link to="">Satyug Pitch Deck</Link>
+                                <Link target="_blank" rel="noopener noreferrer" to="https://drive.google.com/file/d/1ct1NoGnshhZyKzGwRNzRzT85uQ_ERSuE/view">Satyug Pitch Deck</Link>
                             </li>
                             <li>
-                                <Link to="">Presentation</Link>
+                                <Link target="_blank" rel="noopener noreferrer" to="https://drive.google.com/file/d/1rsBhLs-s0qUQ6rc_TX6YLQwPGe3JoxW8/view?inf_contact_key=f14ee117e3038e309511d89173de73e6">Presentation</Link>
                             </li>
                             <li>
-                                <Link to="">VR Presentation</Link>
+                                <Link target="_blank" rel="noopener noreferrer" to="https://drive.google.com/file/d/1Belf7bb5BlxxeiUBMqAnMPAS-y6nUjCa/view?inf_contact_key=2d8a0feb549df612b0b9d9457e805209">VR Presentation</Link>
                             </li>
                             <li>
-                                <Link to="">Contact-Us</Link>
+                                <Link target="_blank" rel="noopener noreferrer" to="">Contact-Us</Link>
                             </li>
                             <li>
-                                <Link to="">Roadmap</Link>
-                            </li>
+                                <Link target="_blank" rel="noopener noreferrer" Link to="https://docs.google.com/presentation/d/1DlY6hdYjiM6-CYn_JhEgONFc2--hqg5WM6v3EKg9a6Y/edit#slide=id.g77ae687167_0_1119" > Roadmap</Link >
+                            </li >
                             <li>
-                                <Link to="">Tokenomics</Link>
-                            </li>
-                        </ul>
+                                <Link target="_blank" rel="noopener noreferrer" Link to="https://docs.google.com/document/d/1dQSDkBRfkNLlzRqnqIvkKYim4nlE7qWUj18LJm1Efiw/edit" > Tokenomics</Link >
+                            </li >
+                        </ul >
                         <div className={styles.footer_details}>
                             <p className={styles.copy_right}>
-                                Satyug © 2022 Company, Inc
+                                Satyug © {new Date().getFullYear()} Company, Inc
                             </p>
                             <ul className={styles.footer_social}>
                                 <li>
-                                    <a href="/" target="_blank" rel="noreferrer">
+                                    <a href="https://twitter.com/SatyugLife" target="_blank" rel="noreferrer">
                                         <TwitterIcon />
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="/" target="_blank" rel="noreferrer">
+                                    <a href="https://github.com/Satyug-life/Satyug-website" target="_blank" rel="noreferrer">
                                         <GithubIcon />
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="/" target="_blank" rel="noreferrer">
+                                    <a href="https://discord.gg/Tg5m53ah" target="_blank" rel="noreferrer">
                                         <DiscordIcon />
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="/" target="_blank" rel="noreferrer">
+                                    <a href="https://www.reddit.com/r/satyug/" target="_blank" rel="noreferrer">
                                         <RedditIcon />
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="/" target="_blank" rel="noreferrer">
+                                    <a href="https://t.me/+h5ablpKtH39mYzg1 " target="_blank" rel="noreferrer">
                                         <TelegramIcon />
                                     </a>
                                 </li>
                             </ul>
                         </div>
-                    </footer>
-                </div>
-            </Container>
-        </section>
+                    </footer >
+                </div >
+            </Container >
+        </section >
     )
 }
 

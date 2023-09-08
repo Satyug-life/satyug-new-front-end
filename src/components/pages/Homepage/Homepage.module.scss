@@ -1,15 +1,23 @@
 @import "../../../assets/theme/_var.scss";
 
 .homepage {
-    background-image: url(../../../assets/images/hmpg-bg.png);
+    background-image: url($s3bucket + "/hmpg-bg.png");
     min-height: 100vh;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     padding: 6rem 0 10rem;
+    display: flex;
+    align-items: center;
 
     @media (max-width: 1199px) {
         padding: 10rem 0 8rem;
+
+        :global {
+            .container {
+                max-width: 100%;
+            }
+        }
     }
 
     @media (max-width: 991px) {
@@ -27,7 +35,6 @@
     }
 
     .home_inner {
-
         .logo {
             display: block;
             width: fit-content;
@@ -43,13 +50,19 @@
                 max-width: 8rem;
             }
 
-            @media (max-height: 619px) and (max-width: 1439px) {
-                max-width: 7rem;
+            @media (max-height: 799px) {
                 margin: 0 auto 4rem;
             }
 
-            @media (max-height: 479px) and (max-width: 1439px) {
+            @media (max-height: 479px) {
                 margin: 0 auto 2rem;
+            }
+
+            @media (max-height: 799px) and (max-width: 1439px) {
+                max-width: 8rem;
+            }
+
+            @media (max-height: 479px) and (max-width: 1439px) {
                 max-width: 6rem;
             }
         }
@@ -69,7 +82,9 @@
 
                 img {
                     display: block;
-                    width: fit-content;
+                    // width: fit-content;
+                    max-width: 24rem;
+                    width: 100%;
                     margin-inline: auto;
                 }
 
@@ -81,9 +96,64 @@
                 }
 
                 button {
+                    transform: translateY(-2rem);
                     margin: auto auto 0;
                     z-index: 2;
                     position: relative;
+                }
+
+                :global {
+                    @keyframes blink {
+                        from {
+                            opacity: 0;
+                        }
+
+                        to {
+                            opacity: 1;
+                        }
+                    }
+                }
+
+                .play_btn {
+                    color: $white;
+                    height: 4rem;
+                    width: 100%;
+                    padding: 0 0.8rem;
+                    z-index: 0;
+                    position: absolute;
+                    font-size: 1.6rem;
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    opacity: 0;
+                    // animation: blink 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) infinite alternate;
+                    visibility: hidden;
+                    pointer-events: none;
+                    top: -1rem;
+
+                    @media (min-width: 576px) {
+                        bottom: -4rem;
+                        left: 50%;
+                        top: unset;
+                        transform: translateX(-50%);
+                    }
+
+                    @media (max-width: 1199px) {
+                        font-size: 1.4rem;
+                        height: 3rem;
+                        bottom: -3rem;
+                    }
+
+                    @media (max-width: 575px) {
+                        font-size: 1.2rem;
+                        height: 2rem;
+                    }
+
+                    .play_btn_animation {
+                        position: absolute;
+                        bottom: 0;
+                        z-index: -2;
+                    }
                 }
 
                 &:first-child,
@@ -92,8 +162,34 @@
                 }
 
                 &:hover {
+                    .play_btn {
+                        animation: blink 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) infinite alternate;
+                        visibility: visible;
+                    }
+
                     .animation {
                         opacity: 1;
+                    }
+                }
+            }
+
+            @media (max-width: 1599px) {
+                .home_box {
+                    img {
+                        max-width: 22rem;
+                    }
+                }
+            }
+
+            @media (max-width: 1439px) {
+                .home_box {
+                    img {
+                        max-width: 20rem;
+                    }
+
+                    button {
+                        max-width: 20rem;
+                        height: 4rem;
                     }
                 }
             }
@@ -113,13 +209,37 @@
                     button {
                         width: 100%;
                         max-width: 16rem;
-                        height: 4rem;
+                        // height: 4rem;
                     }
 
                     &:first-child,
                     &:last-child {
                         transform: translateY(0);
                     }
+                }
+            }
+
+            @media (max-width: 767px) {
+                .home_box {
+                    button {
+                        height: 3.2rem;
+                    }
+                }
+            }
+
+            @media (max-width: 575px) {
+                .home_box {
+                    flex: 0 0 50%;
+
+                    img {
+                        max-width: 14rem;
+                    }
+                }
+            }
+
+            @media (max-width: 379px) {
+                .home_box {
+                    flex: 0 0 100%;
                 }
             }
 
@@ -142,6 +262,12 @@
 
             @media (max-height: 619px) and (max-width: 1439px) {
                 .home_box {
+
+                    &:first-child,
+                    &:last-child {
+                        transform: translateY(0);
+                    }
+
                     img {
                         max-width: 14rem;
                     }
@@ -149,12 +275,19 @@
                     button {
                         height: 3.2rem;
                         font-size: 1.2rem;
+                        max-width: 14rem;
                     }
                 }
             }
 
-            @media (max-height: 479px) {
+            @media (max-height: 479px) and (max-width: 1199px) {
                 .home_box {
+
+                    &:first-child,
+                    &:last-child {
+                        transform: translateY(0);
+                    }
+
                     img {
                         max-width: 10rem;
                     }

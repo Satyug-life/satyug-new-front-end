@@ -1,15 +1,14 @@
 import React from 'react';
-import leftIcon from "../../../assets/images/heading-left.png";
-import rightIcon from "../../../assets/images/heading-right.png";
 import styles from "./HeadingText.module.scss";
+import { S3_BUCKET } from '../../../utils/Constants';
 
-const HeadingText = ({ heading, className }) => {
+const HeadingText = ({ heading, className, dataAos }) => {
     return (
-        <div className={`${styles.heading_text} ${className || ""}`}>
-            <span><img src={leftIcon} alt="" /></span>
+        <div {...dataAos} className={`${styles.heading_text} ${className || ""}`}>
+            <span><img src={`${S3_BUCKET.IMAGES}/heading-left.png`} alt="" /></span>
             <h2>{heading}</h2>
             <span>
-                <img src={rightIcon} alt="" />
+                <img src={`${S3_BUCKET.IMAGES}/heading-right.png`} alt="" />
             </span>
         </div>
     )

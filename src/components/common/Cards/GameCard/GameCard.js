@@ -1,22 +1,20 @@
-import React from 'react'
-import lockedImg from "../../../../assets/images/lockedgame.png";
-import comingsoonImg from "../../../../assets/images/coming-soon-game.png";
-import archeryIcon2 from "../../../../assets/images/game-archery-2.png";
-import styles from "./GameCard.module.scss";
-import leftArrow from "../../../../assets/images/game-left-arrow.png";
-import rightArrow from "../../../../assets/images/game-right-arrow.png";
-import Button from '../../Buttons/Button/Button';
+import React from 'react';
+import fireSparkles from "../../../../assets/animations/particles.json";
 import { useNavigate } from 'react-router-dom';
+import { S3_BUCKET } from '../../../../utils/Constants';
+import Button from '../../Buttons/Button/Button';
+import LottieAnimation from '../../LottieAnimation/LottieAnimation';
+import styles from "./GameCard.module.scss";
 
-const GameCard = ({ playCard, gameImage, gameTitle, comingSoon, lockedCard, className, onPlayClick }) => {
+const GameCard = ({ playCard, dataAos, gameImage, gameImageClass, gameTitle, comingSoon, lockedCard, className, onPlayClick }) => {
     const navigate = useNavigate()
     return (
-        <div className={`${styles.game_card} ${className || ""}`}>
+        <div {...dataAos} className={`${styles.game_card} ${lockedCard ? styles.locked_card : ""} ${className || ""}`}>
             <div className={styles.game_inner}>
-                <span className={styles.left_arrow}><img src={leftArrow} alt="" /></span>
-                <span className={styles.right_arrow}><img src={rightArrow} alt="" /></span>
-                <span className={styles.archery_icon}><img src={archeryIcon2} alt="archery-icon" /></span>
-                <div className={styles.game_image}>
+                <span className={styles.left_arrow}><img src={`${S3_BUCKET.IMAGES}/game-left-arrow.png`} alt="" /></span>
+                <span className={styles.right_arrow}><img src={`${S3_BUCKET.IMAGES}/game-right-arrow.png`} alt="" /></span>
+                <span className={styles.archery_icon}><img src={`${S3_BUCKET.IMAGES}/game-archery-2.png`} alt="archery-icon" /></span>
+                <div className={`${styles.game_image} ${gameImageClass || ""}`}>
                     <img src={gameImage} alt="game" />
                 </div>
                 <div className={styles.game_title}>
@@ -25,16 +23,20 @@ const GameCard = ({ playCard, gameImage, gameTitle, comingSoon, lockedCard, clas
                         comingSoon &&
                         <div className={styles.coming_soon_img}>
                             <p>Coming Soon</p>
-                            <img src={comingsoonImg} alt="coming-soon" />
+                            <img src={`${S3_BUCKET.IMAGES}/coming-soon-game.png`} alt="coming-soon" />
                         </div>
                     }
                     {
                         lockedCard &&
                         <div className={`${styles.coming_soon_img} ${styles.locked_img}`}>
-                            <img src={lockedImg} alt="lock" />
+                            <img src={`${S3_BUCKET.IMAGES}/lockedgame.png`} alt="lock" />
                         </div>
                     }
                 </div>
+                <LottieAnimation
+                    animation={fireSparkles}
+                    className={styles.fire_sparkles}
+                />
                 {
                     comingSoon ?
                         null

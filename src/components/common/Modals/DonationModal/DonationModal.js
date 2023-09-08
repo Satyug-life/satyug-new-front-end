@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect, useRef } from "react";
 import styles from "./DonationModal.module.scss";
 import { Modal } from "react-bootstrap";
 import { CoinIcons, CrossIcon } from "../../../../assets/svg/svgicons";
@@ -6,22 +6,76 @@ import { Form, Formik } from "formik";
 import Input from "../../Formik/Input/Input";
 import Button from "../../Buttons/Button/Button";
 import * as Yup from "yup";
-import { ENVIRONMENT, FORMIK_REGEX } from "../../../../utils/Constants";
+import {
+  ENVIRONMENT,
+  FORMIK_REGEX,
+  S3_BUCKET_AUDIO,
+} from "../../../../utils/Constants";
 import useRazorpay from "react-razorpay";
-import { apiCallPost } from "../../../../axiosApi/Axios";
+import { apiCallPatch, apiCallPost } from "../../../../axiosApi/Axios";
 import { toasts } from "../../Toast/Toast";
-
+import axios from "axios";
+import { useDispatch } from "react-redux";
+import { setLoader } from "../../../../redux/loader";
 const DonationModal = ({ show, handleClose }) => {
   const [active, setActive] = useState(null);
-  const [Razorpay, isLoaded] = useRazorpay();
+  const dispatch = useDispatch();
+  const [Razorpay] = useRazorpay();
+  const audioRef = useRef();
+
+  useEffect(() => {
+    audioRef?.current && audioRef.current.play();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [audioRef?.current]);
+
+  const paymentHandler = async (res, orderId, status) => {
+    try {
+      let payload = {
+        status: status,
+        razorpayPaymentId: res.razorpay_payment_id,
+      };
+      const response = await apiCallPatch(
+        `/api/v1/satyug/donation/${orderId}`,
+        payload
+      );
+      if (response.status === 200) {
+        toasts.success(response.message);
+        dispatch(setLoader(false));
+        handleClose();
+      } else {
+        dispatch(setLoader(false));
+        toasts.error(response.message);
+      }
+    } catch (err) {
+      dispatch(setLoader(false));
+    }
+  };
+
+  const paymentSignature = async (res, orderId) => {
+    dispatch(setLoader(true));
+    try {
+      const response = await axios.post(
+        "https://stage-razorpay.satyug.life/razorPay/v1/payment/verify_payment_signature",
+        res
+      );
+      if (response.status === 200) {
+        paymentHandler(res, orderId, "SUCCESS");
+      } else if (response.status === 400) {
+        paymentHandler(res, orderId, "FAILED");
+      }
+    } catch (err) {
+      toasts.error(err);
+      dispatch(setLoader(false));
+    }
+  };
+
   const handlePayment = useCallback(
     async (orderId) => {
-
       const options = {
         key: ENVIRONMENT.RAZORPAY_KEY,
         order_id: orderId,
         handler: (res) => {
-          console.log(res);
+          paymentSignature(res, orderId);
         },
         theme: {
           color: "#3399cc",
@@ -31,29 +85,25 @@ const DonationModal = ({ show, handleClose }) => {
       const rzpay = new Razorpay(options);
       rzpay.open();
     },
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     [Razorpay]
   );
   const initialValues = {
-    amount: 0,
+    amount: "",
     emailId: "",
   };
   const handleSubmit = async (values) => {
     try {
-      const response = await apiCallPost("/razorPay/v1/payment/order", {
+      const response = await apiCallPost("/api/v1/satyug/donation", {
         amount: values.amount,
-        currency: "INR",
-        receipt: values.emailId,
+        userId: values.emailId,
       });
       if (response.status === 200) {
-        if (isLoaded) {
-          handlePayment(response.data.orderId);
-        } else {
-          toasts.error("Something went wrong");
-        }
+        handlePayment(response.data.orderId);
       } else {
         toasts.error("Something went wrong");
       }
-    } catch (err) {}
+    } catch (err) { }
   };
   const amountButtons = [
     {
@@ -73,9 +123,16 @@ const DonationModal = ({ show, handleClose }) => {
     emailId: Yup.string()
       .required("Email is required")
       .matches(FORMIK_REGEX.EMAIL_REGEX, "Invalid email"),
-    amount: Yup.number().required("Amount is required").min(1),
+    amount: Yup.number("Only numbers are allowed")
+      .min(1)
+      .max(1000000, "Maximum Rs.1000000 is allowed")
+      .integer()
+      .required("Amount is required"),
   });
   return (
+    <><audio ref={audioRef} loop>
+    <source src={S3_BUCKET_AUDIO.DONATE} type="audio/mpeg" />
+  </audio>
     <Modal
       show={show}
       className={styles.donation_modal}
@@ -97,8 +154,8 @@ const DonationModal = ({ show, handleClose }) => {
             return (
               <Form>
                 <Input
-                  label="Enter Email ID:"
-                  placeholder="example  @email.com"
+                  label="Enter Email Id:"
+                  placeholder="Enter Email Id"
                   formik={formik}
                   name="emailId"
                   className={`${styles.input} ${styles.emailId}`}
@@ -106,10 +163,13 @@ const DonationModal = ({ show, handleClose }) => {
                 <Input
                   label="Enter Amount to Donate:"
                   className={styles.input}
-                  placeholder="Rs.45.00"
+                  placeholder="Enter Amount to Donate"
                   formik={formik}
                   name="amount"
-                  type="number"
+                  onKeyDown={(evt) =>
+                    ["e", "E", "+", "-", ".", "*"].includes(evt.key) &&
+                    evt.preventDefault()
+                  }
                 />
                 <ul>
                   {amountButtons.map((item) => (
@@ -135,14 +195,15 @@ const DonationModal = ({ show, handleClose }) => {
                     className={styles.proceed_btn}
                   />
                 </div>
+                
               </Form>
             );
           }}
         </Formik>
       </Modal.Body>
     </Modal>
+    </>
   );
 };
 
 export default DonationModal;
-

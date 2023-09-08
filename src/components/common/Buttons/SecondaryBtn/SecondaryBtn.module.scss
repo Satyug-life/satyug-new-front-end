@@ -1,7 +1,7 @@
 @import "../../../../assets/theme/_var.scss";
 
 .button {
-    background-image: url(../../../../assets/images/secondary-btn.png);
+    background-image: url($s3bucket + "/secondary-btn.png");
     background-color: transparent;
     width: 24.1rem;
     height: 5.2rem;
@@ -103,11 +103,11 @@
     }
 
     span {
-        text-shadow: 0px 0px 4px0px rgba(0, 0, 0, 0.40);
+        text-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.40);
         color: $baseclr;
         font-variant-numeric: lining-nums proportional-nums;
 
-        @media (min-width: 12834px) {
+        @media (min-width: 1283px) {
             -webkit-text-stroke-color: $black;
             -webkit-text-stroke-width: 1px;
         }

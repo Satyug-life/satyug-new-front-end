@@ -1,18 +1,19 @@
 import React from 'react';
 import styles from "./SecondaryBtn.module.scss";
-import leftArrow from "../../../../assets/svg/left-arrow.svg";
-import rightArrow from "../../../../assets/svg/right-arrow.svg";
+import { S3_BUCKET } from '../../../../utils/Constants';
 const SecondaryBtn = ({ className, onClick, type, text, ...rest }) => {
     return (
         <button
             {...rest}
+            data-aos="zoom-in"
+            data-aos-offset="-400"
             onClick={onClick}
             type={type || "button"}
             className={`${styles.button} ${className || ""}`}
         >
-            <img src={leftArrow} alt='left-arrow' />
-            <span>{text}</span>
-            <img src={rightArrow} alt='right-arrow' />
+            <img src={`${S3_BUCKET.IMAGES}/left-arrow.svg`} alt='left-arrow' />
+            <span data-aos-offset="-400" data-aos="zoom-in" >{text}</span>
+            <img src={`${S3_BUCKET.IMAGES}/right-arrow.svg`} alt='right-arrow' />
         </button>
     )
 }

@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
 import { Navigate } from "react-router-dom";
+import { apiCallPost } from "../axiosApi/Axios";
+import { useDispatch } from "react-redux";
 import { useQuery } from "../hooks/useQuery";
+import { setUserDetails } from "../redux/userDetails/userSlice";
 
 const AuthGuard = ({ children, redirectPath = "/", type }) => {
-  const query = useQuery();
-  const dispatch = useDispatch();
-
-  const [isValidated, setIsValidated] = useState(true);
+  const [isValidated, setIsValidated] = useState(false);
   useEffect(() => {
   
+        // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  if (!isValidated) {
-    return <Navigate to={redirectPath} replace />;
+  if (isValidated) {
+    return <Navigate to={"login"} replace />;
   }
   return children;
 };

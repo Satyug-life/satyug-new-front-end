@@ -6,6 +6,7 @@ html {
 
 body {
     font-family: $basefont;
+    background-color: $black23;
 }
 
 p,
@@ -34,6 +35,22 @@ span {
 .container {
     max-width: 150.6rem;
     padding-inline: 1.5rem;
+
+    @media (max-width: 1599px) {
+        max-width: 134rem;
+    }
+
+    @media (max-width: 1439px) {
+        max-width: 114rem;
+    }
+
+    @media (max-width: 1199px) {
+        max-width: 76rem;
+    }
+
+    @media (max-width: 767px) {
+        max-width: 64rem;
+    }
 }
 
 input:-webkit-autofill,
@@ -53,6 +70,21 @@ input:autofill:active {
     caret-color: $white;
     -moz-text-fill-color: $white;
 }
+
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
 
 ul {
     list-style: none;
@@ -81,12 +113,12 @@ ul {
     user-select: none;
 }
 
-.Toastify__toast-container {
-    width: 100vw;
+// .Toastify__toast-container {
+//     width: 100vw;
 
-    .Toastify__toast-theme--light {
-        background-color: transparent;
-        padding: 0;
-        justify-content: center;
-    }
-}
+//     .Toastify__toast-theme--light {
+//         background-color: transparent;
+//         padding: 0;
+//         justify-content: center;
+//     }
+// }

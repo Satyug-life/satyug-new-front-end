@@ -4,7 +4,7 @@
     width: 26.7rem;
     height: 6.8rem;
     color: $white;
-    background-image: url(../../../../assets/svg/btn-bg.png);
+    background-image: url($s3bucket + "/btn-bg.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -35,12 +35,18 @@
         transform: scale(0.98);
     }
 
+    &:disabled {
+        opacity: 0.5 !important;
+        pointer-events: none;
+        filter: grayscale(0.4)
+    }
+
     &[data-variant*="secondary-btn"] {
         color: $black;
-        background-image: url(../../../../assets/svg/btn-bg-2.svg);
+        background-image: url($s3bucket + "/btn-bg-2.svg");
 
         &:hover {
-            background-image: url(../../../../assets/svg/btn-bg.png);
+            background-image: url($s3bucket + "/btn-bg.png");
         }
     }
 }
