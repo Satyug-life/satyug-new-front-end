@@ -1,7 +1,8 @@
 const ENV = process.env;
 export const ENVIRONMENT = {
   RAZORPAY_KEY: ENV.REACT_APP_RAZORPAY_KEY,
-  MAP_key: ENV.REACT_APP_GOOGLE_API_KEY
+  MAP_key: ENV.REACT_APP_GOOGLE_API_KEY,
+  GAME_URL: ENV.REACT_APP_GAME_URL
 };
 export const URL_LINK = `https://www.stage-user.satyug.life/?id=`
 export const FORMIK_REGEX = {
@@ -23,10 +24,12 @@ export const GAME_TOKEN = {
 };
 
 export const S3_BUCKET = {
+  URL: "https://satyug-bucket.s3.amazonaws.com",
   IMAGES: "https://satyug-bucket.s3.amazonaws.com/satyugImages",
   VIDEOS: "https://satyug-bucket.s3.amazonaws.com/satyugvideos",
   SHIRT: "https://satyug-bucket.s3.amazonaws.com/products/Tshirt.png",
   CAP: "https://satyug-bucket.s3.amazonaws.com/products/cap.png",
+  BEFORE_GAME:"https://satyug-bucket.s3.amazonaws.com/satyugvideos/BeforeGam.mp4"
 };
 export const S3_BUCKET_AUDIO = {
   AFTER_GAME: "https://satyug-bucket.s3.amazonaws.com/audio/AfterGame.mp3",

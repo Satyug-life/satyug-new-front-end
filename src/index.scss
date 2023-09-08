@@ -34,7 +34,7 @@ span {
 
 .container {
     max-width: 150.6rem;
-    padding-inline: 1.5rem;
+    padding-inline: 2rem;
 
     @media (max-width: 1599px) {
         max-width: 134rem;
@@ -56,8 +56,10 @@ span {
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
-input:-webkit-autofill:active {
+input:-webkit-autofill:active,
+input:-internal-autofill-selected {
     transition: background-color 5000s ease-in-out 0s;
+    background-color: $black !important;
     caret-color: $white;
     -webkit-text-fill-color: $white;
 }
@@ -65,8 +67,10 @@ input:-webkit-autofill:active {
 input:autofill,
 input:autofill:hover,
 input:autofill:focus,
-input:autofill:active {
+input:autofill:active,
+input:-internal-autofill-selected {
     transition: background-color 5000s ease-in-out 0s;
+    background-color: $black !important;
     caret-color: $white;
     -moz-text-fill-color: $white;
 }

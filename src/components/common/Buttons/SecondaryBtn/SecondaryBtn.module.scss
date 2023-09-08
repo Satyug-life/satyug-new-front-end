@@ -59,6 +59,7 @@
     }
 
     img {
+        pointer-events: none;
         position: absolute;
         top: 50%;
         transition: 200ms ease-in-out;
@@ -126,5 +127,10 @@
                 transform: translate(calc(100% + 1rem), -50%);
             }
         }
+    }
+
+    &:disabled {
+        opacity: 0.6 !important;
+        pointer-events: none;
     }
 }

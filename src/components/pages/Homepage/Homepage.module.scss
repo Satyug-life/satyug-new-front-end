@@ -1,7 +1,7 @@
 @import "../../../assets/theme/_var.scss";
 
 .homepage {
-    background-image: url($s3bucket + "/hmpg-bg.png");
+    background-image: url($s3bucket + "/hmpg-bg.webp");
     min-height: 100vh;
     background-size: cover;
     background-repeat: no-repeat;
@@ -51,7 +51,7 @@
             }
 
             @media (max-height: 799px) {
-                margin: 0 auto 4rem;
+                margin: 0 auto 14rem;
             }
 
             @media (max-height: 479px) {

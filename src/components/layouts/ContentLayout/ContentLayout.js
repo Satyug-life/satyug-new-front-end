@@ -12,7 +12,7 @@ const ContentLayout = ({ children, className, leftContentClass, rightContentClas
             <div className={styles.content_left_inner}>{children}</div>
           </div>
           <div className={`${styles.content_right} ${rightContentClass || ""}`}>
-            <img data-aos='fade-down' data-aos-offset="-400" data-aos-delay="400" src={`${S3_BUCKET.IMAGES}/hanumaan-ji.png`} alt="hanuman-ji" />
+            <img data-aos='fade-down' data-aos-offset="-400" data-aos-delay="400" src={`${S3_BUCKET.IMAGES}/hanumaan-ji.webp`} alt="hanuman-ji" />
           </div>
         </div>
       </Container>

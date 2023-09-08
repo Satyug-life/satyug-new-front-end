@@ -17,6 +17,10 @@
     letter-spacing: 0.01em;
     transition: 200ms ease-in-out;
 
+    &:hover {
+        background-image: url($s3bucket + "/btn-bg-hovered.png");
+    }
+
     @media (max-width: 1439px) {
         font-size: 1.8rem;
     }

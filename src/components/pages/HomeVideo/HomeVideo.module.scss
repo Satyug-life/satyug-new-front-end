@@ -31,6 +31,8 @@
         }
 
         img {
+            width: 20rem;
+
             @media (max-width: 1439px) {
                 max-width: 10rem;
             }
@@ -112,12 +114,11 @@
 
             @media (max-height: 479px) and (max-width: 1199px) {
                 font-size: 2.4rem;
-                width: 12rem;
+                width: 14rem;
             }
 
             @media (max-height: 419px) and (max-width: 1199px) {
                 font-size: 2rem;
-                width: 12rem;
             }
         }
 
@@ -201,15 +202,12 @@
 
     .skip_btn {
         position: fixed;
-        top: 4rem;
+        bottom: 4rem;
         right: 4rem;
-        // background-color: $baseclr;
-        // height: 5rem;
-        // padding-inline: 2rem;
-        // border-radius: 0.4rem;
-        // outline: none;
-        // border: 1px solid $baseclr2;
-        // color: $white;
-        // font-size: 1.6rem;
+        border: none;
+        outline: none;
+        background-color: transparent;
+        text-decoration: underline;
+        font-size: 2rem;
     }
 }

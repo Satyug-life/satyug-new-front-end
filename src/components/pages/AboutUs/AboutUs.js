@@ -9,7 +9,7 @@ import { S3_BUCKET } from '../../../utils/Constants';
 const AboutUs = () => {
     return (
         <section className={styles.about_us}>
-            <video  playsInline  autoPlay  className={styles.about_video} muted>
+            <video playsInline autoPlay className={styles.about_video} muted>
                 <source src={`${S3_BUCKET.VIDEOS}/about-us.mp4`} type="video/mp4" />
             </video>
             <Container>
@@ -51,7 +51,7 @@ const AboutUs = () => {
                                 <Link target="_blank" rel="noopener noreferrer" to="https://drive.google.com/file/d/1Belf7bb5BlxxeiUBMqAnMPAS-y6nUjCa/view?inf_contact_key=2d8a0feb549df612b0b9d9457e805209">VR Presentation</Link>
                             </li>
                             <li>
-                                <Link target="_blank" rel="noopener noreferrer" to="">Contact-Us</Link>
+                                <Link to="/contact">Contact-Us</Link>
                             </li>
                             <li>
                                 <Link target="_blank" rel="noopener noreferrer" Link to="https://docs.google.com/presentation/d/1DlY6hdYjiM6-CYn_JhEgONFc2--hqg5WM6v3EKg9a6Y/edit#slide=id.g77ae687167_0_1119" > Roadmap</Link >

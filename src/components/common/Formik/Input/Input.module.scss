@@ -39,7 +39,8 @@
             margin-left: 0;
         }
 
-        input {
+        input,
+        textarea {
             color: $white;
             font-family: $secondaryfont;
             width: 100%;
@@ -48,7 +49,7 @@
             font-weight: 400;
             background-color: rgba($black, 0.6);
             border-radius: 0.4rem;
-            border: none;
+            border: 1px solid transparent;
             outline: none;
             height: 6rem;
 
@@ -77,6 +78,16 @@
             &::placeholder {
                 color: rgba($white, 0.5);
             }
+
+            &:focus {
+                border: 1px solid rgba($baseclr, 0.6);
+            }
+        }
+
+        textarea {
+            height: auto;
+            // resize: none;
+            padding-top: 1.4rem;
         }
     }
 }

@@ -20,7 +20,7 @@ const SuccessModal = ({ show, email, handleClose }) => {
             </Modal.Header>
             <Modal.Body>
                 <p>
-                    You order have been placed successfully. 
+                    You order have been placed successfully.
                 </p>
                 <p>
                     Details have been sent on email id <span>{email}</span>

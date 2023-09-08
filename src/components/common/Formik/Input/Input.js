@@ -15,7 +15,7 @@ const Input = forwardRef(({ name, formik, error, label, className, ...rest }, re
                     {...rest}
                     id={name}
                     name={name}
-                    innerRef={ref} 
+                    innerRef={ref}
                 />
                 <ErrorMessage name={name} component={ErrorMsg} />
             </div>

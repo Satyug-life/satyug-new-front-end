@@ -3,7 +3,7 @@
 .home_layout {
     min-height: 100vh;
     background-size: cover;
-    background-image: url($s3bucket + "/login-bg.png");
+    background-image: url($s3bucket + "/login-bg.webp");
     // background-position: top bottom;
     // background-size: 100% 100%;
     background-size: cover;
@@ -20,10 +20,16 @@
         position: absolute;
         top: 0;
         left: 0;
-        background-image: url($s3bucket + "/login-bg-overlay.svg");
+        background-image: url($s3bucket + "/login-bg-overlay.webp");
         background-size: cover;
         background-position: top;
         background-repeat: no-repeat;
+    }
+
+    &.video_bg {
+        &::after {
+            background: linear-gradient(180deg, rgba($black, 0.7), rgba($black, 0.7));
+        }
     }
 
     :global {
@@ -57,10 +63,10 @@
     }
 
     &.ques_bg {
-        background-image: url($s3bucket + "/question-page.png");
+        background-image: url($s3bucket + "/question-page.webp");
 
         &::after {
-            background-image: url($s3bucket + "/question-page-overlay.png");
+            background-image: url($s3bucket + "/question-page-overlay.webp");
         }
     }
 }

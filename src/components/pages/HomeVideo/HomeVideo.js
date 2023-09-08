@@ -1,9 +1,7 @@
-import React, { useRef, useState } from 'react'
-import styles from "./HomeVideo.module.scss";
-import { RightArrows } from '../../../assets/svg/svgicons';
-import { useNavigate } from 'react-router-dom';
-import Button from '../../common/Buttons/Button/Button';
+import React, { useRef, useState } from 'react';
+import { useNavigate ,Link } from 'react-router-dom';
 import { S3_BUCKET } from '../../../utils/Constants';
+import styles from "./HomeVideo.module.scss";
 
 const HomeVideo = () => {
 
@@ -17,8 +15,8 @@ const HomeVideo = () => {
     }
     return (
         <section className={styles.home_video}>
-            <video   onEnded={()=>{navigate("/navigator")}} playsInline  ref={vidRef}>
-            
+            <video onEnded={() => { navigate("/navigator") }} playsInline ref={vidRef}>
+
                 <source src={`${S3_BUCKET.VIDEOS}/SatyugHome.mp4`} type="video/mp4" />
             </video>
             {
@@ -34,22 +32,12 @@ const HomeVideo = () => {
                         <h3>Satyug</h3>
                         <ul>
                             <li>
-                                <a
-                                    href="/"
-                                    rel="noreferrer"
-                                    target="_blank"
-                                >
+                            <Link target="_blank" rel="noopener noreferrer" to="https://drive.google.com/file/d/1ajamewqmu4OmSuH4AkC6qyGQcUrxov0O/view">
                                     Satyug Whitepaper
-                                </a>
+                                </Link>
                             </li>
                             <li>
-                                <a
-                                    href="/"
-                                    rel="noreferrer"
-                                    target="_blank"
-                                >
-                                    Satyug Pitch Deck
-                                </a>
+                            <Link target="_blank" rel="noopener noreferrer" to="https://drive.google.com/file/d/1ct1NoGnshhZyKzGwRNzRzT85uQ_ERSuE/view">Satyug Pitch Deck</Link>
                             </li>
                             <li>
                                 <a
@@ -76,11 +64,16 @@ const HomeVideo = () => {
             {
                 playing &&
                 // <button className={styles.skip_btn} onClick={() => navigate('/navigator')}>Skip <RightArrows /></button>
-                <Button
+                // <Button
+                //     className={styles.skip_btn}
+                //     onClick={() => navigate('/navigator')}
+                //     text={<>Skip <RightArrows /></>}
+                // />
+                <button
                     className={styles.skip_btn}
-                    onClick={() => navigate('/navigator')}
-                    text={<>Skip <RightArrows /></>}
-                />
+                    onClick={() => navigate("/navigator")}>
+                    Skip
+                </button>
             }
         </section>
     )

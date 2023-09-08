@@ -25,7 +25,7 @@ const DonationModal = ({ show, handleClose }) => {
 
   useEffect(() => {
     audioRef?.current && audioRef.current.play();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [audioRef?.current]);
 
   const paymentHandler = async (res, orderId, status) => {
@@ -85,7 +85,7 @@ const DonationModal = ({ show, handleClose }) => {
       const rzpay = new Razorpay(options);
       rzpay.open();
     },
-        // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [Razorpay]
   );
   const initialValues = {
@@ -103,7 +103,7 @@ const DonationModal = ({ show, handleClose }) => {
       } else {
         toasts.error("Something went wrong");
       }
-    } catch (err) { }
+    } catch (err) {}
   };
   const amountButtons = [
     {
@@ -130,78 +130,79 @@ const DonationModal = ({ show, handleClose }) => {
       .required("Amount is required"),
   });
   return (
-    <><audio ref={audioRef} loop>
-    <source src={S3_BUCKET_AUDIO.DONATE} type="audio/mpeg" />
-  </audio>
-    <Modal
-      show={show}
-      className={styles.donation_modal}
-      onHide={handleClose}
-      centered
-    >
-      <Modal.Header>
-        <button onClick={handleClose} className={styles.close_btn}>
-          <CrossIcon />
-        </button>
-      </Modal.Header>
-      <Modal.Body>
-        <Formik
-          initialValues={initialValues}
-          validationSchema={validationSchema}
-          onSubmit={handleSubmit}
-        >
-          {(formik) => {
-            return (
-              <Form>
-                <Input
-                  label="Enter Email Id:"
-                  placeholder="Enter Email Id"
-                  formik={formik}
-                  name="emailId"
-                  className={`${styles.input} ${styles.emailId}`}
-                />
-                <Input
-                  label="Enter Amount to Donate:"
-                  className={styles.input}
-                  placeholder="Enter Amount to Donate"
-                  formik={formik}
-                  name="amount"
-                  onKeyDown={(evt) =>
-                    ["e", "E", "+", "-", ".", "*"].includes(evt.key) &&
-                    evt.preventDefault()
-                  }
-                />
-                <ul>
-                  {amountButtons.map((item) => (
-                    <li key={item.value}>
-                      <button
-                        type="button"
-                        onClick={() => {
-                          setActive(item.value);
-                          formik.setFieldValue("amount", item.value);
-                        }}
-                        className={active === item.value ? styles.active : ""}
-                      >
-                        <CoinIcons />
-                        {item.label}
-                      </button>
-                    </li>
-                  ))}
-                </ul>
-                <div className="d-flex align-items-center justify-content-center">
-                  <Button
-                    text="Proceed"
-                    type="submit"
-                    className={styles.proceed_btn}
+    <>
+      <audio ref={audioRef} loop>
+        <source src={S3_BUCKET_AUDIO.DONATE} type="audio/mpeg" />
+      </audio>
+      <Modal
+        show={show}
+        className={styles.donation_modal}
+        onHide={handleClose}
+        centered
+      >
+        <Modal.Header>
+          <button onClick={handleClose} className={styles.close_btn}>
+            <CrossIcon />
+          </button>
+        </Modal.Header>
+        <Modal.Body>
+          <Formik
+            initialValues={initialValues}
+            validationSchema={validationSchema}
+            onSubmit={handleSubmit}
+          >
+            {(formik) => {
+              return (
+                <Form>
+                  <Input
+                    label="Enter Email Id:"
+                    placeholder="Enter Email Id"
+                    formik={formik}
+                    name="emailId"
+                    className={`${styles.input} ${styles.emailId}`}
                   />
-                </div>
-                
-              </Form>
-            );
-          }}
-        </Formik>
-      </Modal.Body>
-    </Modal>
+                  <Input
+                    label="Enter Amount to Donate:"
+                    className={styles.input}
+                    placeholder="Enter Amount to Donate"
+                    formik={formik}
+                    name="amount"
+                    onKeyDown={(evt) =>
+                      ["e", "E", "+", "-", ".", "*", "/"].includes(evt.key) &&
+                      evt.preventDefault()
+                    }
+                  />
+                  <ul>
+                    {amountButtons.map((item) => (
+                      <li key={item.value}>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setActive(item.value);
+                            formik.setFieldValue("amount", item.value);
+                          }}
+                          className={active === item.value ? styles.active : ""}
+                        >
+                          <CoinIcons />
+                          {item.label}
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <div className="d-flex align-items-center justify-content-center">
+                    <Button
+                      text="Proceed"
+                      type="submit"
+                      className={styles.proceed_btn}
+                    />
+                  </div>
+                </Form>
+              );
+            }}
+          </Formik>
+        </Modal.Body>
+      </Modal>
     </>
   );
 };

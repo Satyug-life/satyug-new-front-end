@@ -11,9 +11,9 @@ const SecondaryBtn = ({ className, onClick, type, text, ...rest }) => {
             type={type || "button"}
             className={`${styles.button} ${className || ""}`}
         >
-            <img src={`${S3_BUCKET.IMAGES}/left-arrow.svg`} alt='left-arrow' />
+            <img src={`${S3_BUCKET.IMAGES}/left-arrow.png`} alt='left-arrow' />
             <span data-aos-offset="-400" data-aos="zoom-in" >{text}</span>
-            <img src={`${S3_BUCKET.IMAGES}/right-arrow.svg`} alt='right-arrow' />
+            <img src={`${S3_BUCKET.IMAGES}/right-arrow.png`} alt='right-arrow' />
         </button>
     )
 }
