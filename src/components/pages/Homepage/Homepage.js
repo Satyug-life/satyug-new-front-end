@@ -9,6 +9,9 @@ import { S3_BUCKET } from '../../../utils/Constants';
 
 const Homepage = () => {
     const navigate = useNavigate();
+    const handleClick=()=>{
+        navigate("new page")
+    }
     return (
         <section className={styles.homepage}>
             <Container>
@@ -71,8 +74,8 @@ const Homepage = () => {
                                 className={styles.animation}
                             />
                             <Button
-                                onClick={() => navigate('/coming-soon')}
-                                text="Darshan"
+                                onClick={handleClick}
+                                text="Kriya"
                             />
                             <span className={styles.play_btn}>
                                 Click to Play
